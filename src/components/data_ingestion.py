@@ -1,18 +1,11 @@
 import os
 import sys
 from dataclasses import dataclass
-from pathlib import Path
 
 import pandas as pd
 from pandas import DataFrame
 from sklearn.model_selection import train_test_split  # type: ignore
 
-sys.path.append(str(Path(__file__).parent.parent))
-
-from src.components.data_transformation import (
-    DataTransformation,
-    DataTransformationConfig,
-)
 from src.exception import CustomException
 from src.logger import logger
 
@@ -68,11 +61,3 @@ class DataIngestion:
             )
         except Exception as error:
             raise CustomException(error, sys)
-
-
-if __name__ == "__main__":
-    data_ingestion = DataIngestion()
-    train_data, test_data = data_ingestion.initiate_data_ingestion()
-
-    data_transformation = DataTransformation()
-    data_transformation.initiate_data_transformation(train_data, test_data)

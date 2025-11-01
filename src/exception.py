@@ -1,6 +1,6 @@
 import types
 
-from logger import logger
+from src.logger import logger
 
 
 def error_message_detail(
