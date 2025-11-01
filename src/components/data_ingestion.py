@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import pandas as pd
+from pandas import DataFrame
 from sklearn.model_selection import train_test_split  # type: ignore
 
 sys.path.append(str(Path(__file__).parent.parent))
@@ -26,7 +27,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logger.info("Entered the data ingestion method or component")
         try:
-            df = pd.read_csv("notebooks/data/stud.csv")
+            df: DataFrame = pd.read_csv("notebooks/data/stud.csv")
             logger.info("Read the dataset as dataframe")
 
             os.makedirs(
@@ -39,6 +40,8 @@ class DataIngestion:
 
             logger.info("Train test split initiated")
 
+            train_set: DataFrame
+            test_set: DataFrame
             train_set, test_set = train_test_split(
                 df, test_size=0.2, random_state=42
             )
