@@ -1,5 +1,7 @@
 import types
 
+from logger import logger
+
 
 def error_message_detail(
     message: Exception, error_detail: types.ModuleType
@@ -29,4 +31,5 @@ if __name__ == "__main__":
     try:
         a = 1 / 0
     except Exception as error:
+        logger.error(error)
         raise CustomException(error, sys)
