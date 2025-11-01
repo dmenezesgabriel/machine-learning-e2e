@@ -50,3 +50,12 @@ def evaluate_models(X_train, y_train, X_test, y_test, models, params):
     except Exception as error:
         logger.exception(error)
         raise CustomException(error, sys)
+
+
+def load_object(file_path):
+    try:
+        with open(file_path, "rb") as file_object:
+            return dill.load(file_object)
+
+    except Exception as error:
+        raise CustomException(error, sys)
