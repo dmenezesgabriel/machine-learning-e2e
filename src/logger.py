@@ -21,7 +21,7 @@ file_handler = RotatingFileHandler(
 stream_handler = logging.StreamHandler()
 
 formatter = logging.Formatter(
-    "[ %(asctime)s ] [%(levelname)s] %(name)s:%(lineno)d - %(message)s"
+    "[ %(asctime)s ] - %(levelname)s -  %(name)s:%(lineno)d - %(message)s"
 )
 
 file_handler.setFormatter(formatter)
